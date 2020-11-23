@@ -121,6 +121,7 @@ deploy_to_prod:
   when: manual
   only:
   - master
+  - main
   environment: prod
   image: docker:stable
   script:
