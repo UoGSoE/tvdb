@@ -88,6 +88,7 @@ build-prod-tagged:
   image: docker:stable
   only:
   - master
+  - main
   script:
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   - DOCKER_BUILDKIT=1 docker build --build-arg PHP_VERSION=${PHP_VERSION} --target=prod -t $PROD_IMAGE_NAME .
