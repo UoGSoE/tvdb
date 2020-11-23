@@ -15,10 +15,7 @@ class UpdateComputerController extends Controller
             'computer_id' => 'required',
         ]);
 
-        $computer = Tv::where('computer_name', '=', $data['computer_name'])->firstOrCreate([
-            'computer_name' => $data['computer_name'],
-            'computer_id' => $data['computer_id'],
-        ]);
+        $computer = Tv::where('computer_name', '=', $data['computer_name'])->firstOrNew();
 
         $computer->computer_name = $data['computer_name'];
         $computer->computer_id = $data['computer_id'];
