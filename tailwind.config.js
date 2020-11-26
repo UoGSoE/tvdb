@@ -4,6 +4,9 @@ module.exports = {
     purge: ['./storage/framework/views/*.php', './resources/views/**/*.blade.php'],
 
     theme: {
+        container: {
+            center: true,
+        },
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],

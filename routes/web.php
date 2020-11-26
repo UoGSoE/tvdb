@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [\App\Http\Controllers\HomeController::class, 'show'])->name('home');
+    Route::get('/apikeys', [\App\Http\Controllers\ApiKeyController::class, 'show'])->name('apikeys');
 });
 
 require __DIR__.'/auth.php';
