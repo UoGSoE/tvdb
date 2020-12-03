@@ -78,13 +78,11 @@ services:
         - "traefik.http.routers.${TRAEFIK_BACKEND}-secured.rule=Host(`${TRAEFIK_HOSTNAME}`)"
         - "traefik.http.routers.${TRAEFIK_BACKEND}-secured.entrypoints=web-secured"
         - "traefik.http.routers.${TRAEFIK_BACKEND}-secured.tls.certresolver=mytlschallenge"
-    stop_grace_period: 2m
     logging: *default-logging
 
   migrations:
     image: ${IMAGE_NAME}
     deploy: *default-php-deploy
-    stop_grace_period: 1m
     networks:
       - default
     environment:
