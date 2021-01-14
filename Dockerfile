@@ -7,7 +7,7 @@ FROM uogsoe/soe-php-apache:${PHP_VERSION} as dev
 
 COPY docker/app-start docker/app-healthcheck /usr/local/bin/
 RUN chmod u+x /usr/local/bin/app-start /usr/local/bin/app-healthcheck
-CMD ["/usr/local/bin/app-start"]
+CMD ["tini", "--", "/usr/local/bin/app-start"]
 
 
 ### Build JS/css assets
@@ -109,9 +109,6 @@ RUN php /var/www/html/artisan storage:link && \
 
 #- Set up the default healthcheck
 HEALTHCHECK --start-period=30s CMD /usr/local/bin/app-healthcheck
-
-#- And off we go...
-CMD ["/usr/local/bin/app-start"]
 
 
 ### Build the ci version of the app (prod+dev packages)
