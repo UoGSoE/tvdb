@@ -20,6 +20,7 @@
         "sentry/sentry-laravel": "^2.3"
     },
     "require-dev": {
+        "brianium/paratest": "^6.1",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^0.0.5",
