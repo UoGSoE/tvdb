@@ -71,7 +71,7 @@ class ApiTest extends TestCase
 
         $result->assertStatus(422);
         $result->assertJson([
-            "message" => "The given data was invalid.",
+            "message" => "The computer name field is required. (and 1 more error)",
             "errors" => [
                 "computer_name" => ["The computer name field is required."],
                 "computer_id" => ["The computer id field is required."]
