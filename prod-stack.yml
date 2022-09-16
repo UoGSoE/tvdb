@@ -80,6 +80,19 @@ services:
         - "traefik.http.routers.${TRAEFIK_BACKEND}-secured.tls.certresolver=mytlschallenge"
     logging: *default-logging
 
+  queue:
+    image: ${IMAGE_NAME}
+    deploy: *default-php-deploy
+    stop_grace_period: 1m
+    networks:
+      - default
+    environment:
+      CONTAINER_ROLE: queue
+    secrets:
+      - source: dotenv
+        target: .env
+    logging: *default-logging
+
   migrations:
     image: ${IMAGE_NAME}
     deploy: *default-php-deploy
