@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\UpdateMachine;
 use App\Models\Tv;
 use Illuminate\Http\Request;
 
@@ -15,16 +16,15 @@ class UpdateComputerController extends Controller
             'computer_id' => 'required',
         ]);
 
-        $computer = Tv::where('computer_name', '=', $data['computer_name'])->firstOrNew();
-
-        $computer->computer_name = $data['computer_name'];
-        $computer->computer_id = $data['computer_id'];
-        $computer->last_seen = now();
-        $computer->save();
+        UpdateMachine::dispatch($data['computer_name'], $data['computer_id']);
 
         return response()->json([
             'message' => 'ok',
-            'data' => $computer->toJson(),
+            'data' => [
+                'computer_name' => $data['computer_name'],
+                'computer_id' => $data['computer_id'],
+                'last_seen' => now(),
+            ],
         ], 200);
     }
 }
