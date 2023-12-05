@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\Tv;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ApiTest extends TestCase
@@ -22,7 +21,7 @@ class ApiTest extends TestCase
             'computer_name' => 'TEST123',
             'computer_id' => '12345',
         ], [
-            'Authorization' => 'Bearer ' . $token->plainTextToken,
+            'Authorization' => 'Bearer '.$token->plainTextToken,
         ]);
 
         $result->assertOk();
@@ -46,7 +45,7 @@ class ApiTest extends TestCase
             'computer_name' => 'Jimmy',
             'computer_id' => '99999',
         ], [
-            'Authorization' => 'Bearer ' . $token->plainTextToken,
+            'Authorization' => 'Bearer '.$token->plainTextToken,
         ]);
 
         $result->assertOk();
@@ -66,16 +65,16 @@ class ApiTest extends TestCase
             'computer_name' => '',
             'computer_id' => '',
         ], [
-            'Authorization' => 'Bearer ' . $token->plainTextToken,
+            'Authorization' => 'Bearer '.$token->plainTextToken,
         ]);
 
         $result->assertStatus(422);
         $result->assertJson([
-            "message" => "The computer name field is required. (and 1 more error)",
-            "errors" => [
-                "computer_name" => ["The computer name field is required."],
-                "computer_id" => ["The computer id field is required."]
-            ]
+            'message' => 'The computer name field is required. (and 1 more error)',
+            'errors' => [
+                'computer_name' => ['The computer name field is required.'],
+                'computer_id' => ['The computer id field is required.'],
+            ],
         ]);
         $this->assertEquals(0, Tv::count());
     }
@@ -99,7 +98,7 @@ class ApiTest extends TestCase
             'computer_name' => 'fred',
             'computer_id' => '12345',
         ], [
-            'Authorization' => 'Bearer ' . 'not-a-valid-token',
+            'Authorization' => 'Bearer '.'not-a-valid-token',
         ]);
 
         $result->assertUnauthorized();

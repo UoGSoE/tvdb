@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\UpdateMachine;
-use App\Models\Tv;
 use Illuminate\Http\Request;
 
 class UpdateComputerController extends Controller

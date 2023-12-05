@@ -4,11 +4,10 @@ namespace App\Jobs;
 
 use App\Models\Tv;
 use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 
 class UpdateMachine implements ShouldQueue
 {
@@ -18,6 +17,7 @@ class UpdateMachine implements ShouldQueue
     use SerializesModels;
 
     public $computer_name;
+
     public $computer_id;
 
     /**

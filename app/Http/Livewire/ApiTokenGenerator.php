@@ -7,6 +7,7 @@ use Livewire\Component;
 class ApiTokenGenerator extends Component
 {
     public $token = '';
+
     public $tokenName = '';
 
     public function render()
