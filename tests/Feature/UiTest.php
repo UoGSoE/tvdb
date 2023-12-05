@@ -13,7 +13,7 @@ class UiTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function unauthenticated_users_are_redirected_to_the_login_page()
+    public function unauthenticated_users_are_redirected_to_the_login_page(): void
     {
         $response = $this->get(route('home'));
 
@@ -21,7 +21,7 @@ class UiTest extends TestCase
     }
 
     /** @test */
-    public function authenticated_users_can_see_the_list_of_computers()
+    public function authenticated_users_can_see_the_list_of_computers(): void
     {
         $user = User::factory()->create();
         $tv1 = Tv::factory()->create();
@@ -38,7 +38,7 @@ class UiTest extends TestCase
     }
 
     /** @test */
-    public function we_can_search_for_a_specific_computer_by_id_or_name()
+    public function we_can_search_for_a_specific_computer_by_id_or_name(): void
     {
         $user = User::factory()->create();
         $tv1 = Tv::factory()->create(['computer_name' => 'fred', 'computer_id' => '99999']);
@@ -56,7 +56,7 @@ class UiTest extends TestCase
     }
 
     /** @test */
-    public function authenticated_users_can_see_the_list_of_existing_api_keys()
+    public function authenticated_users_can_see_the_list_of_existing_api_keys(): void
     {
         $user1 = User::factory()->create();
         $user2 = User::factory()->create();
@@ -73,7 +73,7 @@ class UiTest extends TestCase
     }
 
     /** @test */
-    public function authenticated_users_can_generate_a_new_api_key()
+    public function authenticated_users_can_generate_a_new_api_key(): void
     {
         $user = User::factory()->create();
 
@@ -87,7 +87,7 @@ class UiTest extends TestCase
     }
 
     /** @test */
-    public function authenticated_users_can_revoke_an_existing_api_key()
+    public function authenticated_users_can_revoke_an_existing_api_key(): void
     {
         $user = User::factory()->create();
         $token1 = $user->createToken('first');

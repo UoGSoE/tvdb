@@ -36,7 +36,7 @@ class UpdateMachine implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         $computer = Tv::where('computer_name', '=', $this->computer_name)->firstOrNew();
 

@@ -13,7 +13,7 @@ class TestDataSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         User::factory()->create([
             'username' => 'billy',

@@ -12,7 +12,7 @@ class TvFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'computer_name' => implode('-', $this->faker->words(3)),

@@ -12,7 +12,7 @@ class ApiTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function we_can_create_a_new_entry_via_an_api_call()
+    public function we_can_create_a_new_entry_via_an_api_call(): void
     {
         $user = User::factory()->create();
         $token = $user->createToken('test');
@@ -32,7 +32,7 @@ class ApiTest extends TestCase
     }
 
     /** @test */
-    public function we_can_update_an_exiting_entry_via_an_api_call()
+    public function we_can_update_an_exiting_entry_via_an_api_call(): void
     {
         $user = User::factory()->create();
         $token = $user->createToken('test');
@@ -56,7 +56,7 @@ class ApiTest extends TestCase
     }
 
     /** @test */
-    public function the_computer_name_and_id_are_required_when_making_a_call()
+    public function the_computer_name_and_id_are_required_when_making_a_call(): void
     {
         $user = User::factory()->create();
         $token = $user->createToken('test');
@@ -80,7 +80,7 @@ class ApiTest extends TestCase
     }
 
     /** @test */
-    public function the_bearer_token_header_is_required_and_must_be_valid()
+    public function the_bearer_token_header_is_required_and_must_be_valid(): void
     {
         $user = User::factory()->create();
         $token = $user->createToken('test');
