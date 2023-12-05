@@ -21,8 +21,8 @@ class ComputerList extends Component
     {
         return view('livewire.computer-list', [
             'records' => Tv::orderByDesc('last_seen')
-                ->where('computer_name', 'like', '%' . $this->searchTerm . '%')
-                ->orWhere('computer_id', 'like', '%' . $this->searchTerm . '%')
+                ->where('computer_name', 'like', '%'.$this->searchTerm.'%')
+                ->orWhere('computer_id', 'like', '%'.$this->searchTerm.'%')
                 ->paginate(50),
         ]);
     }

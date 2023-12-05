@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tv;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    public function show()
+    public function show(): View
     {
         return view('dashboard', [
             'records' => Tv::orderByDesc('last_seen')->get(),

@@ -10,10 +10,8 @@ class TestDataSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         User::factory()->create([
             'username' => 'billy',

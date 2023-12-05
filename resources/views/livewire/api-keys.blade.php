@@ -18,7 +18,7 @@
                     <tr class="hover:bg-gray-100" wire:key="token-{{ $token->id }}">
                         <td class="p-2">{{ $user->username }}</td>
                         <td>{{ $token->name }}</td>
-                        <td>{{ optional($token->last_used_at)->format('d/m/Y H:i') }}</td>
+                        <td>{{ $token->last_used_at?->format('d/m/Y H:i') }}</td>
                         <td><button class="p-2 rounded hover:bg-red-400 hover:text-white" wire:click="revoke({{ $token->id }})">Revoke</button></td>
                     </tr>
                 @endforeach

@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\UpdateMachine;
-use App\Models\Tv;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class UpdateComputerController extends Controller
 {
-    public function update(Request $request)
+    public function update(Request $request): JsonResponse
     {
         $data = $request->validate([
             'computer_name' => 'required|string',

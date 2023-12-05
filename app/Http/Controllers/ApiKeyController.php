@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ApiKeyController extends Controller
 {
-    public function show()
+    public function show(): View
     {
         return view('apikeys', [
             'users' => User::with('tokens')->orderBy('username')->get(),
