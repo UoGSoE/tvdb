@@ -2,9 +2,6 @@
 
 use App\Models\Tv;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-
 
 test('we can create a new entry via an api call', function () {
     $user = User::factory()->create();

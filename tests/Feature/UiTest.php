@@ -2,10 +2,7 @@
 
 use App\Models\Tv;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
-use Tests\TestCase;
-
 
 test('unauthenticated users are redirected to the login page', function () {
     $response = $this->get(route('home'));
