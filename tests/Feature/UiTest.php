@@ -64,13 +64,13 @@ test('authenticated users can see the list of existing api keys', function () {
 test('authenticated users can generate a new api key', function () {
     $user = User::factory()->create();
 
-    $this->assertEquals(0, $user->tokens()->count());
+    expect($user->tokens()->count())->toEqual(0);
 
     Livewire::actingAs($user)->test('api-token-generator')
         ->set('tokenName', 'hello')
         ->call('generate');
 
-    $this->assertEquals(1, $user->tokens()->count());
+    expect($user->tokens()->count())->toEqual(1);
 });
 
 test('authenticated users can revoke an existing api key', function () {
@@ -78,11 +78,11 @@ test('authenticated users can revoke an existing api key', function () {
     $token1 = $user->createToken('first');
     $token2 = $user->createToken('second');
 
-    $this->assertEquals(2, $user->tokens()->count());
+    expect($user->tokens()->count())->toEqual(2);
 
     Livewire::actingAs($user)->test('api-keys')
         ->call('revoke', $user->tokens->last()->id); // revoke 'second' api key
 
-    $this->assertEquals(1, $user->tokens()->count());
+    expect($user->tokens()->count())->toEqual(1);
     $this->assertTrue($user->fresh()->tokens->contains(fn ($token) => $token->name == 'first'));
 });

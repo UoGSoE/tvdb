@@ -21,8 +21,8 @@ test('we can create a new entry via an api call', function () {
 
     $result->assertOk();
     tap(Tv::first(), function ($tv) {
-        $this->assertEquals('TEST123', $tv->computer_name);
-        $this->assertEquals('12345', $tv->computer_id);
+        expect($tv->computer_name)->toEqual('TEST123');
+        expect($tv->computer_id)->toEqual('12345');
     });
 });
 
@@ -43,8 +43,8 @@ test('we can update an exiting entry via an api call', function () {
 
     $result->assertOk();
     tap(Tv::first(), function ($tv) {
-        $this->assertEquals('Jimmy', $tv->computer_name);
-        $this->assertEquals('99999', $tv->computer_id);
+        expect($tv->computer_name)->toEqual('Jimmy');
+        expect($tv->computer_id)->toEqual('99999');
     });
 });
 
@@ -67,7 +67,7 @@ test('the computer name and id are required when making a call', function () {
             'computer_id' => ['The computer id field is required.'],
         ],
     ]);
-    $this->assertEquals(0, Tv::count());
+    expect(Tv::count())->toEqual(0);
 });
 
 test('the bearer token header is required and must be valid', function () {
@@ -81,7 +81,7 @@ test('the bearer token header is required and must be valid', function () {
     ]);
 
     $result->assertUnauthorized();
-    $this->assertEquals(0, Tv::count());
+    expect(Tv::count())->toEqual(0);
 
     $result = $this->postJson(route('api.computer.update'), [
         'computer_name' => 'fred',
@@ -91,5 +91,5 @@ test('the bearer token header is required and must be valid', function () {
     ]);
 
     $result->assertUnauthorized();
-    $this->assertEquals(0, Tv::count());
+    expect(Tv::count())->toEqual(0);
 });
