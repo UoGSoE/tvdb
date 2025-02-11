@@ -11,7 +11,10 @@ class Tv extends Model
 
     protected $guarded = [];
 
-    protected $casts = [
-        'last_seen' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'last_seen' => 'datetime',
+        ];
+    }
 }
