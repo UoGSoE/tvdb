@@ -2,7 +2,7 @@ name: tvdb
 recipe: laravel
 config:
   webroot: public
-  php: '8.1'
+  php: '8.2'
   cache: redis
 services:
   mail:
@@ -10,6 +10,10 @@ services:
     portforward: true
     hogfrom:
       - appserver
+  node:
+    type: node:22
+    build:
+      - npm install
 excludes:
   - node_modules
 tooling:
@@ -35,18 +39,18 @@ tooling:
     user: root
     cmd: apt-get update && apt-get install -y libldap-common && printf "\nTLS_REQCERT never\n" >> /etc/ldap/ldap.conf
   npm:
-    service: appserver
+    service: node
     description: "Run npm command"
     cmd: npm
   npmd:
-    service: appserver
+    service: node
     description: "Run npm run dev"
     cmd: npm run dev
   npmp:
-    service: appserver
+    service: node
     description: "Run npm run prod"
     cmd: npm run prod
   npmw:
-    service: appserver
+    service: node
     description: "Run npm run watch"
     cmd: npm run watch
