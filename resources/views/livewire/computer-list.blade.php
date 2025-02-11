@@ -2,7 +2,7 @@
 <!-- component -->
 <div class="flex justify-between mt-4">
     <div class="relative text-gray-600">
-      <input wire:model="searchTerm" autofocus type="search" name="search" placeholder="Search..." class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
+      <input wire:model.live="searchTerm" autofocus type="search" name="search" placeholder="Search..." class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
     </div>
 </div>
     <div class="py-6">

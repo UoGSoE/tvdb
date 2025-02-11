@@ -15,6 +15,7 @@ class TestDataSeeder extends Seeder
     {
         User::factory()->create([
             'username' => 'billy',
+            'password' => bcrypt('password'),
         ]);
 
         Tv::factory()->times(100)->create();
