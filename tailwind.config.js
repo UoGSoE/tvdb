@@ -1,18 +1,27 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+import defaultTheme from 'tailwindcss/defaultTheme';
 
-module.exports = {
-    purge: ['./storage/framework/views/*.php', './resources/views/**/*.blade.php'],
-
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
+    ],
     theme: {
         container: {
             center: true,
         },
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
     },
+    plugins: [],
+
+    purge: ['./storage/framework/views/*.php', './resources/views/**/*.blade.php'],
 
     variants: {
         opacity: ['responsive', 'hover', 'focus', 'disabled'],
@@ -20,6 +29,4 @@ module.exports = {
             backgroundColor: ['odd'],
         }
     },
-
-    plugins: [require('@tailwindcss/ui')],
 };

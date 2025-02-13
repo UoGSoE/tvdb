@@ -12,6 +12,8 @@ services:
       - appserver
   node:
     type: node:22
+    ports:
+      - 3009:3009
     build:
       - npm install
 excludes:
